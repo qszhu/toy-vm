@@ -20,9 +20,10 @@ export default class InstructionFactory {
   }
 
   static fetch(reader: BinaryReader) {
+    if (reader.eof) return
+
     const inst = this.next(reader)
     inst.decode(reader)
-    if (inst.opCode === 0xff) return
     return inst
   }
 }

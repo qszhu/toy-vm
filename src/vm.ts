@@ -1,4 +1,5 @@
 import InstructionFactory from './instruction/factory'
+import { QUIT } from './instruction/sys'
 import BinaryReader from './io/reader'
 import Register from './register'
 
@@ -17,10 +18,10 @@ export default class VM {
 
   run() {
     while (true) {
-      this.reader.setPos(this.pc)
+      this.reader.pos = this.pc
 
       const inst = InstructionFactory.fetch(this.reader)
-      if (!inst) break
+      if (!inst || inst instanceof QUIT) break
 
       this.pc += inst.bytes
       inst.run(this)

@@ -3,8 +3,16 @@ export default class BinaryReader {
 
   constructor(private data: Buffer) {}
 
-  setPos(idx: number) {
+  get eof(): boolean {
+    return this.idx >= this.data.length
+  }
+
+  set pos(idx: number) {
     this.idx = idx
+  }
+
+  get pos(): number {
+    return this.idx
   }
 
   readByte(): number {

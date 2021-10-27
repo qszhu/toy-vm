@@ -9,6 +9,10 @@ export class ADDI extends InstructionRI {
   run(vm: VM): void {
     vm.setR(this.r!, vm.getR(this.r!) + this.i!)
   }
+
+  toString(): string {
+    return `addi r${this.r}, ${this.i}`
+  }
 }
 
 export class ADD extends InstructionRR {
@@ -18,5 +22,9 @@ export class ADD extends InstructionRR {
 
   run(vm: VM): void {
     vm.setR(this.r1!, vm.getR(this.r1!) + vm.getR(this.r2!))
+  }
+
+  toString(): string {
+    return `add r${this.r1}, r${this.r2}`
   }
 }

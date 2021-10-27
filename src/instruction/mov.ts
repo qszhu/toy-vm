@@ -9,6 +9,10 @@ export class MOVI extends InstructionRI {
   run(vm: VM): void {
     vm.setR(this.r!, this.i!)
   }
+
+  toString(): string {
+    return `movi r${this.r}, ${this.i}`
+  }
 }
 
 export class MOV extends InstructionRR {
@@ -18,5 +22,9 @@ export class MOV extends InstructionRR {
 
   run(vm: VM): void {
     vm.setR(this.r1!, vm.getR(this.r2!))
+  }
+
+  toString(): string {
+    return `mov r${this.r1}, r${this.r2}`
   }
 }

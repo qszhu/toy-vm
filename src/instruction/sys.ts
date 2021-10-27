@@ -27,6 +27,10 @@ export class PRINT implements Instruction {
   run(vm: VM): void {
     console.log(vm.getR(this.r!))
   }
+
+  toString(): string {
+    return `print r${this.r}`
+  }
 }
 
 export class QUIT implements Instruction {
@@ -44,4 +48,8 @@ export class QUIT implements Instruction {
   }
 
   run(vm: VM): void {}
+
+  toString(): string {
+    return 'quit'
+  }
 }
