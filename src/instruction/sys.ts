@@ -5,7 +5,7 @@ import Register from '../Register'
 import VM from '../VM'
 
 export class PRINT implements Instruction {
-  public r?: Register
+  constructor(public r?: Register) {}
 
   get opCode(): number {
     return 0xfe
@@ -31,6 +31,12 @@ export class PRINT implements Instruction {
   toString(): string {
     return `print r${this.r}`
   }
+
+  fromString(s: string) {
+    const [_, ...rest] = s.trim().split(' ')
+    const [a] = rest
+    this.r = Number(a[1])
+  }
 }
 
 export class QUIT implements Instruction {
@@ -52,4 +58,6 @@ export class QUIT implements Instruction {
   toString(): string {
     return 'quit'
   }
+
+  fromString(s: string) {}
 }

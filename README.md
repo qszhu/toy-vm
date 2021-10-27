@@ -9,7 +9,11 @@ $ npm run build
 
 ### Run
 ```bash
-$ node dist/tools/dasm.js build/fib.bin 
+# assembler
+$ node dist/tools/asm.js asm/fib.asm 
+
+# disassembler
+$ node dist/tools/dasm.js fib.bin
 [0] movi r1, 10
 [3] movi r2, 0
 [6] movi r3, 1
@@ -22,7 +26,8 @@ $ node dist/tools/dasm.js build/fib.bin
 [25] addi r4, 1
 [28] jmp 12
 [33] print r3
-[35] quit
-$ node dist/index.js build/fib.bin
+
+# interpreter
+$ node dist/index.js fib.bin 
 55
 ```

@@ -21,7 +21,7 @@ export class JMP extends InstructionA {
   }
 
   run(vm: VM): void {
-    vm.jump(this.a!)
+    vm.jump(this.a as number)
   }
 
   toString(): string {
@@ -35,7 +35,7 @@ export class JGT extends InstructionA {
   }
 
   run(vm: VM): void {
-    vm.jumpGT(this.a!)
+    vm.jumpGT(this.a as number)
   }
 
   toString(): string {
